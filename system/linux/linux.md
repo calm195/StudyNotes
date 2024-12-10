@@ -1,4 +1,6 @@
-# system info
+# Linux常用命令
+
+## system info
 
 1. 查看系统信息
 
@@ -36,7 +38,7 @@
     df -h
     ```
 
-# find
+## find
 
 1. 查找文件
     - 直接查找

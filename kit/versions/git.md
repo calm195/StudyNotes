@@ -3,6 +3,14 @@
 git 是一个分布式版本控制系统，用于跟踪文件的变化。
 `.gitingore` 文件用于忽略不需要跟踪的文件。在上一次提交的基础上，`.gitignore` 文件只会跟踪没有跟踪过的文件和文件夹。即，如果文件已经被跟踪过，那么即使在`.gitignore`文件中添加了该文件，也不会被忽略。
 
+## 参数含义
+
+- `--mixed`：默认参数，重置HEAD，暂存区不变，工作区不变
+- `--soft`：重置HEAD，暂存区不变，工作区不变
+- `--hard`：重置HEAD，暂存区回退，工作区恢复到HEAD
+- `HEAD`：当前版本
+- `HEAD^`：上一个版本
+
 ## git init
 
 初始化一个git仓库。
@@ -16,6 +24,15 @@ git 是一个分布式版本控制系统，用于跟踪文件的变化。
 
 - `git status`：查看工作区、暂存区、版本库的状态
 - `git status -s`：查看工作区、暂存区、版本库的状态（简短）
+
+## git commit
+
+提交文件。
+
+- `git commit . -m "message"`：提交暂存区的所有文件
+- `git commit file -m "message"`：提交暂存区的指定文件
+- `git commit -a -m "message"`：提交工作区的所有文件
+- `git commit --amend -m "message"`：修改最近一次提交的信息
 
 ## git show
 
@@ -79,12 +96,32 @@ git 是一个分布式版本控制系统，用于跟踪文件的变化。
 - `git checkout -b branch_name`：创建并切换分支
 - `git checkout -b branch_name tag_name`：创建并切换分支，并切换到标签
 
+回退版本
+
+- `git checkout HEAD file`：回退版本，将暂存区的文件恢复到最近一次提交的版本
+- `git checkout commit_id file`：回退版本，将暂存区的文件恢复到指定提交的版本
+- `git checkout HEAD .`：回退版本，将暂存区的所有文件恢复到最近一次提交的版本
+- `git checkout commit_id .`：回退版本，将暂存区的所有文件恢复到指定提交的版本
+
 ## git switch
 
 切换分支
 
 - `git switch branch_name`：切换分支
 - `git switch -c branch_name`：创建并切换分支
+
+## git reset
+
+回退版本
+
+- `git reset commit_id`：回退版本，将HEAD指向指定提交，暂存区和工作区不变
+- `git reset --hard commit_id`：回退版本，将HEAD指向指定提交，暂存区和工作区恢复到指定提交
+
+## git revert
+
+撤销提交
+
+- `git revert commit_id`：撤销指定提交，生成一个新的提交，暂存区和工作区不变
 
 ## git branch
 

@@ -12,4 +12,4 @@
 
 3. 查看文件
 
-   > `cat /etc/network/interfaces` 
+   > `cat /etc/network/interfaces`
