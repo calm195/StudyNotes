@@ -57,6 +57,15 @@
     - 条件值也可以为常量。
     - 无条件switch：`switch {}`。
       - 相当于`switch true {}`。可以替代if-else。
+- `select`：管道多路复用的控制结构。
+  - 用于处理异步IO操作。
+  - `select`中的每个case必须是一个通道操作，且必须是一种操作，要么读要么写。
+  - `select`会阻塞，直到某个case可以执行。
+  - 如果有多个case可以执行，Go会随机选择一个执行。
+  - `select`可以用于超时控制。
+    - `select {case <-ch: case <-time.After(1 * time.Second):}`。
+  - 永久阻塞：`select {}`。
+  - 永不执行：case中的通道是nil。
 - 数字无法代替bool值，必须使用`true`或`false`。
 - 类型在变量名后面。
 - 当两个以上的连续的函数命名参数是同一类型时，除最后一个类型外，其他的都可以省略。
@@ -97,6 +106,31 @@
     - any：任意类型。
     - T类型满足any类型的约束。如`comparable`
     - 当any为`any`时，表示任意类型，即泛型。
+- 数组初始化时使用的长度必须是常量。
+  - `var arr [5]int`：声明一个长度为5的int数组。不指定初始值，将声明一个切片。
+  - `arr := [5]int{1, 2, 3, 4, 5}`：声明并初始化一个长度为5的int数组。
+  - `arr := [...]int{1, 2, 3, 4, 5}`：声明并初始化一个长度为5的int数组，Go会自动计算长度。
+  - `arr := [5]int{1: 1, 3: 3}`：声明并初始化一个长度为5的int数组，索引1和3的值为1和3。
+  - `len := 5`，`var nums [len]int`：错误
+- 数组与切片共有长度和容量两个属性。
+  - 长度：`len(arr)`。实际能访问的元素个数。
+  - 容量：`cap(arr)`。实际内存中的元素个数。切片的容量会自动扩张。
+- 切片语法
+  - `arr[low:high]`：截取数组或切片，包含low，不包含high。
+  - `arr[low:high:max]`：截取数组或切片，容量为max-low。
+- 不支持函数重载
+- 结构体匿名组合可以直接访问匿名结构体的字段。
+- 结构体标签
+  - 用于给字段添加元信息。
+  - 通过反射机制获取。
+  - 一般用于序列化和反序列化。
+  
+  > ```go
+  > type User struct {
+  >     Name string `json:"name"`
+  >     Age int `json:"age"`
+  > }
+  > ```
 
 ## 关键字
 
@@ -106,9 +140,22 @@
   - `make(chan T)`：创建一个类型为T的信道。
   - `make(chan T, size)`：创建一个缓冲大小为size的类型为T的信道。
   - `close(ch)`：关闭信道。一般不需要关闭，除非是循环读取数据时需要停止等情况。
+  - `<-chan`：只读信道。
+  - `chan<-`：只写信道。
 - `<-`：信道操作符，用于发送和接收数据。
   - `ch <- v`：发送v到信道ch。
   - `v := <-ch`：从ch接收数据并赋值给v。
+- `fallthrough`：继续执行下一个case。
+- `goto`：跳转到指定标签。
+  - label：标签。
+
+  > ```go
+  > label:
+  >     // code
+  > goto label
+  > ```
+
+- `new()`：分配内存，返回指针。
 
 ## 环境变量
 
@@ -127,6 +174,14 @@
 - `go install`：编译导入的包文件，并将可执行文件放到`GOPATH/bin`目录下，包文件放到`GOPATH/pkg`目录下。
 - `go get`：下载并安装包文件。会将包文件放到`GOPATH/src`目录下。
 - `gofmt`：格式化Go代码。
+- `go mod`：管理依赖包。
+  - `go mod init`：初始化`go.mod`文件。
+  - `go mod tidy`：清理理依赖包。
+  - `go mod download`：下载依赖包。
+  - `go mod edit`：编辑`go.mod`文件。
+  - `go mod graph`：打印模块依赖图。
+  - `go mod verify`：验证依赖包。
+  - `go mod why`：解释项目什么地方用到了依赖包。
 
 ## 访问控制
 
