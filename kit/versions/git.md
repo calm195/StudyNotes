@@ -141,6 +141,15 @@ git 是一个分布式版本控制系统，用于跟踪文件的变化。
 
 - `git branch -d branch_name`：删除本地分支
 
+## git remote
+
+- `git remote`：查看远程仓库名称
+- `git remote -v`：查看远程仓库名称和地址
+- `git remote add remote_name remote_url`：添加远程仓库
+- `git remote remove remote_name`：删除远程仓库
+- `git remote rename old_name new_name`：重命名远程仓库
+- `git remote set-url remote_name remote_url`：修改远程仓库地址
+
 ## git-stash
 
 将变化放在一个脏工作区中，然后切换到HEAD。
@@ -157,6 +166,17 @@ git 是一个分布式版本控制系统，用于跟踪文件的变化。
 - `git stash drop stash@{n}`：删除指定的stash
 - `git stash clear`：删除所有stash
 - `git stash branch branch_name`：创建一个新分支，并将stash应用到新分支上，然后删除stash
+
+## git diff
+
+查看文件的变化。
+
+- `git diff`：查看工作区和暂存区的文件变化
+- `git diff file`：查看工作区和暂存区的指定文件变化
+- `git diff commit_id`：查看工作区和指定提交的文件变化
+- `git diff commit_id1 commit_id2`：查看两个提交之间的文件变化
+- `git diff commit_id1 commit_id2 file`：查看两个提交之间的指定文件变化
+- `git diff commit_id1 commit_id2 --stat`：查看两个提交之间的文件变化，包括文件名
 
 ## git merge
 

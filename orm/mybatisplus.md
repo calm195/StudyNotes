@@ -25,6 +25,47 @@ mybatis-plus:
             logic-delete-field: deleted # 逻辑删除字段，对应实体类的字段，写了这个实体类就不用写逻辑删除注解
 ```
 
+## 条件构造器
+
+条件构造器是 MybatisPlus 的核心功能，用于构建查询条件。
+
+| 方法名 | 作用 |
+| --- | --- |
+| `eq` | 等于 |
+| `ne` | 不等于 |
+| `gt` | 大于 |
+| `ge` | 大于等于 |
+| `lt` | 小于 |
+| `le` | 小于等于 |
+| `like` | `like %s%` |
+| `notLike` | `not like %s%` |
+| `likeLeft` | `like %s` |
+| `likeRight` | `like s%` |
+
+- `QueryWrapper`：条件构造器
+- `LambdaQueryWrapper`：Lambda 条件构造器
+- `UpdateWrapper`：更新条件构造器
+- `LambdaUpdateWrapper`：Lambda 更新条件构造器
+
+## 通用CURD
+
+MybatisPlus 提供了通用的 CRUD 方法，可以直接调用。
+
+1. 基于Service CRUD。dao类需要继承`ServiceImpl<M extends BaseMapper<T>, T> implements IService<T>`。
+2. 基于Mapper CRUD。需要定义Mapper接口 继承`BaseMapper<T>`。
+
+`BaseMapper`提供的方法有：
+
+| 方法名 | 作用 |
+| --- | --- |
+| `int insert(T entity)` | 插入一条记录 |
+| `int delete(@Param(Constants.WRAPPER) Wrapper<T> wrapper)` | 根据 entity 条件，删除记录 |
+| `int deleteById(Serializable id)` | 根据 ID 删除记录 |
+| `int update(@Param(Constants.ENTITY) T entity, @Param(Constants.WRAPPER) Wrapper<T> updateWrapper)` | 根据 whereEntity 条件，更新记录 |
+| `int updateById(@Param(Constants.ENTITY) T entity)` | 根据 ID 更新记录 |
+| `T selectById(Serializable id)` | 根据 ID 查询 |
+| `List<T> selectList(@Param(Constants.WRAPPER) Wrapper<T> queryWrapper)` | 查询列表 |
+
 ## 常用注解
 
 - `@TableName`：表名注解
