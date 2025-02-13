@@ -1,6 +1,6 @@
 # conda
 
-conda: python环境管理工具
+python版本与环境管理工具
 
 ## 安装
 
@@ -104,7 +104,8 @@ conda: python环境管理工具
 7. 删除环境
 
    ```shell
-   conda remove -n env_name --all
+   conda remove -n env_name --all 
+   conda remove --prefix path
    ```
 
 8. 导出环境配置
@@ -119,7 +120,15 @@ conda: python环境管理工具
    conda env create -f environment.yml
    ```
 
-# 疑难杂症
+10. 清理缓存
+
+      ```shell
+      conda clean -p # 删除没用的包
+      conda clean -t # 删除没用的tar包
+      conda clean -y --all # 删除所有没用的包和tar包
+      ```
+
+## 疑难杂症
 
 1. powershell 无法激活 conda 虚拟环境
    - 打开 `powershell`
