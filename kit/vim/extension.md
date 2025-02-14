@@ -1,5 +1,10 @@
 # vim extension
 
+官网 [github](https://github.com/tpope/vim-surround)
+
+visual studio code 插件集成：  
+[vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
+
 ## vim-surround
 
 普通模式
