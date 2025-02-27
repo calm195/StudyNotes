@@ -29,6 +29,8 @@ mybatis-plus:
 
 条件构造器是 MybatisPlus 的核心功能，用于构建查询条件。
 
+![wrapper](../image/LambdaQueryWrapper-func.png)
+
 | 方法名 | 作用 |
 | --- | --- |
 | `eq` | 等于 |
@@ -37,13 +39,20 @@ mybatis-plus:
 | `ge` | 大于等于 |
 | `lt` | 小于 |
 | `le` | 小于等于 |
+| `between` | `xxx between a and b` |
 | `like` | `like %s%` |
 | `notLike` | `not like %s%` |
 | `likeLeft` | `like %s` |
 | `likeRight` | `like s%` |
+| `in` | `xxx in (a, b, c)` |
+| `notIn` | `xxx not in (a, b, c)` |
+| `inSql` | `xxx in (select id from table where ...)` |
+| `notInSql` | `xxx not in sql` |
+| `isNull` | `xxx is null` |
+| `isNotNull` | `xxx is not null` |
 
-- `QueryWrapper`：条件构造器
-- `LambdaQueryWrapper`：Lambda 条件构造器
+- `QueryWrapper`：条件构造器，基于String
+- `LambdaQueryWrapper`：Lambda 条件构造器，基于方法引用
 - `UpdateWrapper`：更新条件构造器
 - `LambdaUpdateWrapper`：Lambda 更新条件构造器
 

@@ -38,6 +38,53 @@
     df -h
     ```
 
+## su / sudo
+
+1. 切换用户
+
+    ```shell
+    su user_name
+    ```
+
+2. 切换到超级用户
+
+    ```shell
+    sudo su
+    sudo -i
+    ```
+
+## user
+
+1. 查看用户
+
+    ```shell
+    cat /etc/passwd
+    ```
+
+2. 查看用户组
+
+    ```shell
+    cat /etc/group
+    ```
+
+3. 添加用户
+
+    ```shell
+    useradd user_name
+    ```
+
+4. 删除用户
+
+    ```shell
+    userdel user_name
+    ```
+
+5. 修改用户密码
+
+    ```shell
+    passwd user_name
+    ```
+
 ## find
 
 1. 查找文件
@@ -96,7 +143,7 @@
     > - `{}` ：匹配到的文件名
     > - `\;` ：结束
 
-# 更换源
+## 更换源
 
 1. 更换 `apt` 源
     - 备份
@@ -111,7 +158,7 @@
         2. 手动更换 `sudo vim /etc/apt/sources.list`
         > 资源表
         > - aliyun
->
+        >
         >     ```shell
         >        deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
         >        deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
@@ -125,7 +172,7 @@
         >        # deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
         >        # deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
         > - tsinghua
->
+        >
         >     ```shell
         >       deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
         >       deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
@@ -139,7 +186,7 @@
         >       # deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
         >       # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
         > - ustc
->
+        >
         >     ```shell
         >       deb https://mirrors.ustc.edu.cn/ubuntu/ focal main restricted universe multiverse
         >       deb https://mirrors.ustc.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
