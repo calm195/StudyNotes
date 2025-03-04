@@ -13,6 +13,15 @@
     - `-p` ：提示输入密码
     - `-P` ：指定端口
 
+## 修改密码
+
+- `set password for user@localhost = password('new_password');`
+  - `user` ：用户名
+  - `localhost` ：主机名
+  - `new_password` ：新密码
+- `mysqladmin -uuser -poldPassword password newPassword`
+- `update mysql.user set password=password('newPassword') where user='user';`
+
 ## 插入
 
 - `insert into table_name (column- column- ...)
