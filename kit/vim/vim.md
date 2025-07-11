@@ -55,7 +55,7 @@
 
 ## 翻页
 
-> foward 向前，backward 向后
+> forward 向前，backward 向后
 > up 向上，down 向下
 > top 顶部，bottom 底部
 
@@ -106,8 +106,8 @@
 
 ## 不常用但有用的命令
 
-- `:set number`：显示行号
-- `:set nonumber`：不显示行号
+- `:set nu`：显示行号
+- `:set nonu`：不显示行号
 - `gg`：跳转到文件开头
 - `G`：跳转到文件结尾
 - `+y`：选中内容复制到+寄存器即系统剪贴板
