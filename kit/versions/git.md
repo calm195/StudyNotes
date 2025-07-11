@@ -36,6 +36,13 @@ git 是一个分布式版本控制系统，用于跟踪文件的变化。
 - `HEAD`：当前版本
 - `HEAD^`：上一个版本
 
+## git config
+
+配置git的用户信息。
+
+- `git config --global user.name "name"`：配置全局用户名
+- `git config --global user.email "email"`：配置全局用户邮箱
+
 ## git init
 
 初始化一个git仓库。
