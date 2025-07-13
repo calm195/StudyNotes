@@ -7,7 +7,7 @@
     - `-u` ：指定用户名
     - `-p` ：提示输入密码
 - 远程登录
-  - `mysql -h host -u root -p -P port`
+  - `mysql -h host -u root -p password -P port`
     - `-h` ：指定主机
     - `-u` ：指定用户名
     - `-p` ：提示输入密码
