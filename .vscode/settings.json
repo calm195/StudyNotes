@@ -13,5 +13,8 @@
             "database": "forum",
             "username": "root"
         }
+    ],
+    "cSpell.words": [
+        "Dubbo"
     ]
 }
