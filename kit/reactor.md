@@ -97,4 +97,4 @@ Reactor的核心概念是`Publisher`和`Subscriber`。`Publisher`是一个数据
 | `onErrorReturn(Function<? super Throwable, ? extends T> fallback)` | 在发生错误时返回一个备用值。 |
 | `switchOnError(Function<? super Throwable, ? extends Publisher<? extends T>> fallback)` | 在发生错误时切换到另一个Publisher。 |
 | `onErrorResumeWith(Function<? super Throwable, ? extends Publisher<? extends T>> fallback)` | 在发生错误时切换到另一个Publisher。 |
-| `retry(long maxRetries)` | 在发生错误时重试指定次数。 |
+| `retry(long maxRetries)` | 在发生错误时重试指定次数。|

@@ -175,6 +175,7 @@
         | DOTALL | 在这种模式中，表达式 .可以匹配任何字符，包括行结束符。默认情况下，此表达式不匹配行结束符。通过嵌入式标志表达式 (?s) 也可以启用此种模式（s 是 “single-line” 模式的助记符，在 Perl 中也使用它）。 |
         | UNICODE_CASE | 在这个模式下，如果你还启用了CASE_INSENSITIVE标志，那么它会对Unicode字符进行大小写不敏感的匹配。默认情况下，大小写不明感的匹配只适用于US-ASCII字符集。指定此标志可能对性能产生影响。|
         | CANON_EQ | 当且仅当两个字符的正规分解(canonical decomposition)都完全相同的情况下，才认定匹配。比如用了这个标志之后，表达式a/u030A会匹配?。默认情况下，不考虑规范相等性(canonical equivalence)。指定此标志可能对性能产生影响。 |
+
     - `Matcher`：使用`Pattern`实例提供的正则表达式对目标字符串进行搜索
         - 声明：`public final class Matcher extends Object implements MatchResult`
         - 方法
