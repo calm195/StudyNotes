@@ -62,7 +62,16 @@ public interface UserMapper {
 ## 常用注解
 
 - `@Mapper`：标记接口为 MapStruct 映射器，MapStruct 会为其生成实现类。
+  - `uses`：指定其他映射器类，可以用于复用其他映射逻辑。
 - `@Mapping`：定义源属性和目标属性之间的映射关系，可以指定源属性和目标属性的名称。来源可以是多个实体类的属性。
 - `@Mappings`：用于批量定义多个映射关系。
+
+> ```java
+> @Mappings({
+>    @Mapping(source = "name", target = "fullName"),
+>    @Mapping(source = "age", target = "yearsOld")
+> })
+> ```
+
 - `@InheritConfiguration`：定义在基类或者是接口，实现或者继承基类或接口时，继承映射方法的配置。
 - `@InheritInverseConfiguration`：反转映射关系的配置，可以用于简化双向映射的实现。
