@@ -30,10 +30,8 @@ bash-it enable alias <alias_name>
 bash-it disable alias <alias_name>
 ```
 
-操作组件后，记得重新加载Bash配置：
+操作组件后，重新加载Bash配置：
 
 ```bash
 bash-it reload
 ```
-
-
