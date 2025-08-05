@@ -42,6 +42,8 @@ git 是一个分布式版本控制系统，用于跟踪文件的变化。
 
 - `git config --global user.name "name"`：配置全局用户名
 - `git config --global user.email "email"`：配置全局用户邮箱
+- `git config --global http.proxy "http://proxy:port"`：配置全局HTTP代理
+- `git config --global https.proxy "http://proxy:port"`：配置全局HTTPS代理
 
 ## git init
 

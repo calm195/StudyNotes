@@ -1,5 +1,22 @@
 # mysql
 
+## my.cnf
+
+- `/etc/my.cnf`：Linux系统的MySQL配置文件
+- `/etc/mysql/my.cnf`：Debian/Ubuntu系统的MySQL配置文件
+- `/etc/mysql/mysql.conf.d/mysqld.cnf`：Ubuntu 18.04及以上版本的MySQL配置文件
+
+相关配置：
+
+```ini
+[mysqld]  
+datadir=/var/lib/mysql
+socket=/var/run/mysqld/mysqld.sock
+user=mysql
+bind-address=0.0.0.0 # 允许所有IP访问
+port=3306 # MySQL默认端口
+```
+
 ## 登录
 
 - 本地登录
@@ -21,6 +38,36 @@
   - `new_password` ：新密码
 - `mysqladmin -uuser -poldPassword password newPassword`
 - `update mysql.user set password=password('newPassword') where user='user';`
+
+mysql 8.0 版本以上：
+
+修改root用户密码：
+
+```sql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'new_password';
+```
+
+## 数据迁移
+
+### 导出数据
+
+- `mysqldump -u user -p database_name > backup.sql`
+  - `user` ：用户名
+  - `database_name` ：数据库名
+  - `backup.sql` ：导出文件名
+- `mysqldump -u user -p --databases db1 db2 > backup.sql`
+  - `db1 db2` ：多个数据库名
+- `mysqldump -u user -p --tables db_name table1 table2 > backup.sql`
+  - `table1 table2` ：多个表名
+
+### 导入数据
+
+- `mysql -u user -p database_name < backup.sql`
+  - `user` ：用户名
+  - `database_name` ：数据库名
+  - `backup.sql` ：导入文件名
+- `mysql -u user -p < backup.sql`
+  - `user` ：用户名
 
 ## 插入
 
