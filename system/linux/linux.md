@@ -77,6 +77,7 @@
 
     ```shell
     userdel user_name
+    userdel -r user_name # 删除用户及相关数据
     ```
 
 5. 修改用户密码
