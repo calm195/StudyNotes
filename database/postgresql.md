@@ -67,7 +67,7 @@ sudo apt install postgresql
     CREATE DATABASE mydb OWNER myuser;
     ```
 
-    > 当操作系统用户与PostgreSQL用户同名时，可以直接使用`psql`命令而无需切换用户。
+    > 当操作系统用户与PostgreSQL用户y以及数据库名同名时，可以直接使用`psql`命令而无需切换用户。
 
 ### 修改配置文件
 

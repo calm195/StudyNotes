@@ -19,6 +19,7 @@ port=3306 # MySQL默认端口
 
 ## 登录
 
+- 第一次登录使用默认的root用户和空密码 `sudo mysql`
 - 本地登录
   - `mysql -u root -p`
     - `-u` ：指定用户名
@@ -46,6 +47,24 @@ mysql 8.0 版本以上：
 ```sql
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'new_password';
 ```
+
+## 创建用户
+
+- `create user 'user'@'localhost' identified by 'password';`
+  - `user` ：用户名
+  - `localhost` ：主机名
+  - `password` ：密码
+
+## 授权
+
+- `grant all privileges on database_name.table_name to 'user'@'localhost';`
+  - `database_name` ：数据库名
+  - `user` ：用户名
+  - `localhost` ：主机名
+  - `all privileges` ：授予所有权限
+    - `select` ：查询权限
+    - `insert` ：插入权限
+  - `*` ：表示所有表
 
 ## 数据迁移
 
