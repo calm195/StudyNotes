@@ -26,10 +26,20 @@
       - 创建 docker 容器 `docker build -t ${image_name}:${tag} /path/to/Dockerfile`
       - 运行 docker 容器 `docker run -d -p container_host:container_port:host_port --name ${container_name} ${image_name}:${tag}`
       - 查看 docker 容器 `docker ps -a`
+      - 启动已有 docker 容器 `docker start ${container_id}`
       - 停止 docker 容器 `docker stop ${container_id}`
       - 删除 docker 容器 `docker rm ${container_id}`
       - 查看 docker 容器端口 `docker port ${container_id}`
       - 查看 docker 容器详细信息 `docker inspect ${container_id}`
+   4. docker build
+      - 创建 docker 镜像 `docker build -t ${image_name}:${tag} /path/to/Dockerfile`
+   5. docker tag
+      - 给 docker 镜像打标签 `docker tag ${image_name}:${tag} ${new_image_name}:${new_tag}`
+      - 标上用户名 `docker tag ${image_name}:${tag} ${username}/${image_name}:${tag}`
+      - 标上私库 `docker tag ${image_name}:${tag} ${private_registry}/${username}/${image_name}:${tag}`
+   6. docker push
+      - 推送 docker 镜像 `docker push ${username}/${image_name}:${tag}`
+      - 推送 docker 镜像到私有仓库 `docker push ${private_registry}/${username}/${image_name}:${tag}`
 
 ## 国内镜像
 
