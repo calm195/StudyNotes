@@ -91,6 +91,13 @@ Java 集合，也叫作容器，主要是由两大接口派生而来：一个是
 2. TreeSet
 3. LinkedHashSet
 
+线程安全的Set：
+
+1. CopyOnWriteArraySet **（线程安全）**：基于ReentrantLock、写时复制实现，适用于读多写少的场景。
+2. Collections.synchronizedSet(Set<T> s) 通过synchronized包装，性能较差
+3. ConcurrentSkipListSet **（线程安全）**：基于跳表实现，底层是ConcurrentHashMap，支持高并发
+4. Collections.newSetFromMap(new ConcurrentHashMap<>()) 通过Map实现的Set
+
 ## Queue
 
 储存的元素是有序的，可以重复，按照特定的规则排序
