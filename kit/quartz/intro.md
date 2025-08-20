@@ -1,0 +1,11 @@
+# quartz
+
+[quartz](https://github.com/quartz-scheduler/quartz)是一个开源调度框架
+
+核心元素：
+
+1. Scheduler:任务调度器，是实际执行任务调度的控制器。在spring中通过SchedulerFactoryBean封装起来。
+2. Trigger：触发器，用于定义任务调度的时间规则，有SimpleTrigger,CronTrigger,DateIntervalTrigger和NthIncludedDayTrigger，其中CronTrigger用的比较多，CronTrigger在spring中封装在CronTriggerFactoryBean中。
+3. Calendar:它是一些日历特定时间点的集合。一个trigger可以包含多个Calendar，以便排除或包含某些时间点。
+4. JobDetail:用来描述Job实现类及其它相关的静态信息，如Job名字、关联监听器等信息。在spring中有JobDetailFactoryBean和 MethodInvokingJobDetailFactoryBean两种实现，如果任务调度只需要执行某个类的某个方法，就可以通过MethodInvokingJobDetailFactoryBean来调用。
+5. Job：是一个接口，只有一个方法void execute(JobExecutionContext context),开发者实现该接口定义运行任务，JobExecutionContext类提供了调度上下文的各种信息。Job运行时的信息保存在JobDataMap实例中。实现Job接口的任务，默认是无状态的，若要将Job设置成有状态的，在quartz中是给实现的Job添加@DisallowConcurrentExecution注解,在与spring结合中可以在spring配置文件的job detail中配置concurrent参数。
